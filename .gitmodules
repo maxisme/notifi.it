@@ -1,0 +1,3 @@
+[submodule "web-template"]
+	path = web-template
+	url = https://github.com/maxisme/web-template
