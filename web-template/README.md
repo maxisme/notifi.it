@@ -12,6 +12,6 @@ app:
   version:
     num: 0.01
     description: >
-      <h1>Release Notes</h1>
+      <h1>Release Notes:</h1>
   dmg:
 ```
