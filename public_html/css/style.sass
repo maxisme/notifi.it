@@ -1,0 +1,215 @@
+$white: #f8f8f8
+$off-white: #c1c1c1
+$black: #2f2f2f
+$off-black: #525252
+$red: #bc2122
+$padding: 10px
+
+body
+  font-weight: 400
+  margin: 0
+  padding: 0
+  font-size: 1.5em
+  background-color: $white
+  font-family: 'Montserrat', sans-serif
+  color: #262626
+  border: $black 5px solid
+
+  /* all pages */
+  page
+    padding-bottom: 50px
+    padding-left: 3%
+    padding-right: 3%
+    display: block
+
+    h1
+      font-weight: 700
+      margin-top: - 30px !important
+      display: table
+
+    h2
+      letter-spacing: 10px
+      text-transform: uppercase
+      border: $off-white 5px solid
+      font-weight: 700
+      padding: $padding
+      padding-right: 0px
+      display: table
+      margin-bottom: 1.5em
+
+    h3
+      padding-bottom: 0.5em
+      font-weight: 500
+      border-bottom: $off-white 5px solid
+      display: table
+
+    h4
+      font-weight: 500
+
+    h5
+      font-size: 1.7em
+      margin: 20px
+      padding: 10px
+      font-weight: 500
+      border: $off-white 3px solid
+      display: table
+
+    .blink
+      animation: blinker 1s linear infinite
+
+    @keyframes blinker
+      50%
+        opacity: 0
+
+    .info
+      display: table
+      text-align: justify
+
+    img, video, code
+      padding: 0 !important
+      max-width: 100%
+      border: $black 5px solid
+
+    code
+      padding: 1em !important
+
+    pre
+      display: initial !important
+      font-size: 0.7em
+      margin: -5px !important
+
+    a
+      color: $black
+      border-bottom: $red 2px solid
+
+      &:hover
+        color: $black
+        border-bottom: none
+
+    .bold
+      font-weight: 700
+      font-style: italic
+
+    ul
+      padding-top: 10px
+      li
+        &:first-child
+        padding-left: 2em
+        list-style-type: square
+
+        span
+          color: $black
+
+    i
+      font-weight: 400
+      color: $off-black
+
+    strong
+      font-weight: 600
+
+    button
+      transition: all .3s
+      font-size: 80px !important
+      background: transparent
+      padding: 10px
+      border: none
+
+      &:hover
+        cursor: pointer
+        color: #6A9E48
+
+    .success
+      color: #6A9E48
+
+    .error
+      color: #bc2122
+
+    .sub
+      font-size: 0.6em
+      font-weight: 300
+
+  /* welcome page */
+  $top-bottom-margin: 50px
+  $title-margin: 30px
+
+  .welcome
+    .logo
+      border: none
+      margin-top: $top-bottom-margin
+      height: 300px
+      margin-bottom: $title-margin
+
+    .download
+      font-weight: 600
+      letter-spacing: 10px
+      margin-top: $title-margin + 15px
+      padding: 10px
+      padding-right: 0px
+      font-size: 30px
+      display: table
+      border: $black 5px solid
+
+      &:hover
+        border: $black 5px dashed
+
+      svg
+        width: 35px
+        border: none
+        height: 35px
+        margin-right: 10px
+        margin-left: 5px
+
+        path
+          fill: $black
+
+      img
+        /* placeholder */
+        width: 25px
+        height: 25px
+
+
+    .info
+      text-align: center
+      font-size: 25px
+      margin-top: -20
+      color: $off-black
+      font-weight: 400
+
+    .button
+      text-align: right
+      font-size: 50px
+      border: $black 3px solid
+
+      &:hover
+        border: $black 3px dashed
+
+    .nav
+      margin-top: 40px
+      margin-bottom: $top-bottom-margin
+
+      a
+        font-weight: 600
+        text-transform: uppercase
+        display: inline-block
+        margin: 10px
+
+    .valign-wrapper
+      min-height: 100%
+
+.heavy
+  font-weight: 900
+
+//materialize overwrites
+.valign-wrapper
+  flex-wrap: wrap
+
+.valign
+  width: 100%
+
+textarea.materialize-textarea
+  padding: unset
+  padding-top: 1rem
+  height: 8rem
+  min-height: 8rem
+  //line-height: 1rem
+  transition: all .3s
