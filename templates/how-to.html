@@ -1,0 +1,117 @@
+<!-- Highlight  -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+{{$url:="https://notifi.it/api"}}
+{{$title:="Lorem ipsum dolor."}}
+{{$message:="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}}
+{{$link:="https://notifi.it"}}
+{{$image:="https://notifi.it/images/logo.png"}}
+
+{{$credentials:="<credentials>"}}
+{{ if .Data.c }}
+    {{$credentials = index .Data.c 0}}
+{{end}}
+
+To send a notification to notifi you need to create an HTTP request with the following parameters:
+<ul>
+    <li><span><strong>credentials</strong></span></li>
+    <li><span><strong>title</strong></span></li>
+    <li><span>message</span></li>
+    <li><span>link</span></li>
+    <li><span>image</span></li>
+</ul>
+to the url - <strong>{{ $url }}</strong>.
+
+
+<h3>BASH</h3>
+<pre>
+    <code class="bash">curl -d "credentials={{ $credentials }}" \
+-d "title={{ $title }}" \
+-d "message={{ $message }}" \
+-d "link={{ $link }}" \
+-d "image={{ $image }}" \
+{{ $url }}
+</code>
+</pre>
+
+<h3>jQuery</h3>
+<pre>
+    <code class="jquery">$.post("{{ $url }}", {
+  'credentials': '{{ $credentials }}',
+  'title': '{{ $title }}',
+  'message': '{{ $message }}',
+  'link': '{{ $link }}',
+  'image': '{{ $image }}'
+});</code>
+</pre>
+
+{{ if .Data.c }}
+    <!-- credentials been passed to url -->
+    <script>
+        function runJquery() {
+            $.post("{{ $url }}", {
+                'credentials': '{{ $credentials }}',
+                'title': '{{ $title }}',
+                'message': '{{ $message }}',
+                'link': '{{ $link }}',
+                'image': '{{ $image }}'
+            }, function (data) {
+                if (data) alert(data);
+            });
+        }
+    </script>
+    <i><a class="strong btn" href="#" onclick="runJquery()">Test</a></i>
+{{end}}
+
+<h3>Python</h3>
+<pre>
+    <code class="python">import requests
+requests.post('{{ $url }}', {
+  'credentials': '{{ $credentials }}',
+  'title': '{{ $title }}',
+  'message': '{{ $message }}',
+  'link': '{{ $link }}',
+  'image': '{{ $image }}'
+})</code>
+</pre>
+
+<h3>PHP</h3>
+<pre>
+    <code class="php">curl_setopt_array(
+  $chpush = curl_init(),
+  array(
+    CURLOPT_URL => "{{ $url }}",
+    CURLOPT_POSTFIELDS => array(
+      "credentials" => '{{ $credentials }}',
+      "title" => '{{ $title }}',
+      "message" => '{{ $message }}',
+      "link" => '{{ $link }}',
+      "image" => '{{ $image }}',
+    )
+  )
+);
+curl_exec($chpush);
+curl_close($chpush);</code>
+</pre>
+
+<h3>Objective-C</h3>
+<pre>
+    <code class="objective-c">NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"{{ $url }}"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
+[request setHTTPMethod:@"POST"];
+[request setHTTPBody:[@"credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}" dataUsingEncoding:NSUTF8StringEncoding]];
+[[[NSURLSession sharedSession] dataTaskWithRequest:request] resume];</code>
+</pre>
+
+<h3>Node.js</h3>
+<pre>
+    <code class="nodejs">const https = require('https');
+https.get('https://notifi.it/api?credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}"');</code>
+</pre>
+
+<h3>Go</h3>
+<pre>
+    <code class="go">import "net/http"
+http.get('https://notifi.it/api?credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}"');</code>
+</pre>

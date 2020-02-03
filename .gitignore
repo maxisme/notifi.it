@@ -1,1 +1,5 @@
 config.yaml
+public_html/pages/*
+public_html/images/*
+!public_html/images/apple.svg
+!*.keep

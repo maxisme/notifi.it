@@ -1,0 +1,12 @@
+[Unit]
+Description=Notifi Web
+Requires=network.target
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/notifi-appserver
+ExecReload=/bin/kill -SIGINT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
