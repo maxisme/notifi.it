@@ -15,5 +15,5 @@ go get -u github.com/maxisme/appserver
 # build binary
 go build -o /usr/local/bin/appserver main.go
 
-# reload binary with 0 downtime
+# reload binary
 systemctl restart appserver.service
