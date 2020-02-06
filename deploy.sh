@@ -1,9 +1,11 @@
 #!/bin/bash
 
+cd $(dirname "$0")
+
 # pull latest from project you have created
 git fetch origin
 git checkout master
-git pull
+git merge $1
 
 # get latest version from this project
 go get -u github.com/maxisme/appserver
