@@ -13,5 +13,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
+          script_stop: true
           script: |
             ${{ secrets.DEPLOY_CMD }} ${{ github.sha }}
