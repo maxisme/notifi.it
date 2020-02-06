@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ~/.profile
+
 cd $(dirname "$0")
 
 # pull latest from project you have created
