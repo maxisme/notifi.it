@@ -16,7 +16,7 @@ func main() {
 			Priv: "6LcbhkgUAAAAABuigVIcuHf_9DwOCcifC-ny_IwQ",
 		},
 		Sparkle: appserver.Sparkle{
-			Version:11,
+			Version:"11.0",
 			Description:"foo",
 		},
 	}
