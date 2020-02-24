@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/maxisme/appserver"
+	"os"
 )
 
 func main() {
@@ -12,12 +13,19 @@ func main() {
 		KeyWords: "notifi, notifi it, notify, notification, push notification, curl, mac, osx, mac to mac",
 		Description: "Send simple push notifications to your Mac using HTTP.",
 		Recaptcha: appserver.Recaptcha{
-			Pub: "LcbhkgUAAAAAIe6ZSvN9SQ8KaWgLb56xVUK82Ds",
-			Priv: "6LcbhkgUAAAAABuigVIcuHf_9DwOCcifC-ny_IwQ",
+			Pub: os.Getenv("captch-pub"),
+			Priv: os.Getenv("captch-priv"),
 		},
 		Sparkle: appserver.Sparkle{
 			Version:"11.0",
 			Description:"foo",
+		},
+		Email: appserver.Email{
+			To: "max@max.me.uk",
+			Host: os.Getenv("host"),
+			Port: 587,
+			Username: os.Getenv("username"),
+			Password: os.Getenv("password"),
 		},
 	}
 
