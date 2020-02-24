@@ -13,8 +13,8 @@ func main() {
 		KeyWords: "notifi, notifi it, notify, notification, push notification, curl, mac, osx, mac to mac",
 		Description: "Send simple push notifications to your Mac using HTTP.",
 		Recaptcha: appserver.Recaptcha{
-			Pub: os.Getenv("captch-pub"),
-			Priv: os.Getenv("captch-priv"),
+			Pub: os.Getenv("captchpub"),
+			Priv: os.Getenv("captchpriv"),
 		},
 		Sparkle: appserver.Sparkle{
 			Version:"11.0",
