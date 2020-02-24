@@ -9,9 +9,6 @@ git fetch origin
 git checkout master
 git merge $1
 
-# get latest version from this project
-go get -u github.com/maxisme/appserver
-
 # build binary
 go build -o /usr/local/bin/appserver main.go
 
