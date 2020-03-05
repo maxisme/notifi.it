@@ -1,4 +1,4 @@
-name: notifi
+name: Push
 on:
   push:
     branches:

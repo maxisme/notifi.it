@@ -1,11 +1,17 @@
 package main
 
 import (
+	"github.com/joho/godotenv"
 	"github.com/maxisme/appserver"
 	"os"
 )
 
 func main() {
+	// load .env
+	if err := godotenv.Load(); err != nil {
+		panic(err)
+	}
+
 	conf := appserver.ProjectConfig{
 		Name: "notifi",
 		Host: "notifi.it",
