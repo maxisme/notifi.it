@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PROJECT="notifi"
+
 . ~/.profile
 
 cd $(dirname "$0")
@@ -7,10 +9,14 @@ cd $(dirname "$0")
 # pull latest from project you have created
 git fetch origin
 git checkout master
-git merge $1
+if git merge $1; then
 
-# build binary
-go build -o /usr/local/bin/appserver main.go
+    # build binary
+    go build -o /usr/local/bin/$PROJECT main.go
 
-# reload binary
-systemctl restart appserver.service
+    # reload binary
+    systemctl restart $PROJECT.service
+else
+    echo "problem merging"
+    exit 1
+fi
