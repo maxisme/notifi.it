@@ -70,3 +70,24 @@ Jobs for this page template
  	- convert to gif using `giphit.sh`
  - modify `download.php` .dmg path
  - record video of app using quicktime and then convert to gif (25fps 1200px) using Drop To Gif
+
+___
+
+Create binary:
+```
+cd /root/
+git clone https://github.com/maxisme/transferme.it
+go build -o /usr/local/bin/transfermeit .
+```
+Create socket service
+```
+$ cp transfermeit.service /etc/systemd/system/
+$ cp transfermeit.socket /etc/systemd/system/
+```
+```
+$ systemctl daemon-reload
+$ systemctl enable transfermeit.socket
+$ systemctl start transfermeit.socket
+$ systemctl status transfermeit.socket
+$ curl http://127.0.0.1:8081
+```
