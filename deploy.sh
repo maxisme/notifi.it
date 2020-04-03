@@ -12,7 +12,7 @@ git checkout master
 if git merge $1; then
 
     # build binary
-    go build -o /usr/local/bin/$PROJECT main.go
+    go build -o /usr/local/bin/$PROJECT .
 
     # reload binary
     systemctl restart $PROJECT.service
