@@ -5,16 +5,24 @@ on:
       - master
 
 jobs:
-  deploy:
-    name: Deploy
+  publish:
+    name: Publish image
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
-        uses: appleboy/ssh-action@master
+      - uses: actions/checkout@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          script_stop: true
-          script: |
-            ${{ secrets.DEPLOY_CMD }} ${{ github.sha }}
+          fetch-depth: '0'
+      - name: Bump version and push tag
+        id: tag
+        uses: maxisme/github-tag-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to Docker Registry
+        uses: docker/build-push-action@v1
+        with:
+          repository: ${{ github.repository }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          tags: ${{ steps.tag.outputs.new_tag }}
+          tag_with_ref: true
+          tag_with_sha: true
