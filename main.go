@@ -7,10 +7,8 @@ import (
 )
 
 func main() {
-	// load .env
-	if err := godotenv.Load(); err != nil {
-		panic(err)
-	}
+	// load .env if there
+	_ = godotenv.Load()
 
 	conf := appserver.ProjectConfig{
 		Name:        "notifi",
@@ -28,11 +26,12 @@ func main() {
 		},
 		Email: appserver.Email{
 			To:       "max@max.me.uk",
-			Host:     os.Getenv("host"),
+			Host:     os.Getenv("emailhost"),
 			Port:     587,
-			Username: os.Getenv("username"),
-			Password: os.Getenv("password"),
+			Username: os.Getenv("emailusername"),
+			Password: os.Getenv("emailpassword"),
 		},
+		WebPort: 8080,
 	}
 
 	if err := appserver.Serve(conf); err != nil {
