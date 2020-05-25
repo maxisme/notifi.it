@@ -1,6 +1,6 @@
 module github.com/maxisme/notifi.it
 
-go 1.13
+go 1.14
 
 require (
 	github.com/go-chi/chi v4.1.0+incompatible // indirect
