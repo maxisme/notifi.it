@@ -11,11 +11,11 @@ func main() {
 	_ = godotenv.Load()
 
 	conf := appserver.ProjectConfig{
-		Name:        "notifi",
-		Host:        "notifi.it",
-		DmgPath:     "notifi.dmg",
-		KeyWords:    "notifi, notifi it, notify, notification, push notification, curl, mac, osx, mac to mac",
-		Description: "Send simple push notifications to your Mac using HTTP.",
+		Name:          "notifi",
+		Host:          "notifi.it",
+		GithubDmgRepo: "maxisme/notifi",
+		KeyWords:      "notifi, notifi it, notify, notification, push notification, curl, mac, osx, mac to mac",
+		Description:   "Send simple push notifications to your Mac using HTTP.",
 		Recaptcha: appserver.Recaptcha{
 			Pub:  os.Getenv("captchpub"),
 			Priv: os.Getenv("captchpriv"),
