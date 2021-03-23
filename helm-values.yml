@@ -3,6 +3,6 @@ ingress:
 
 image:
   repository: "maxisme/notifi.it"
-  tag: "latest"
+  tag: "sha-e77f919"
 
 envSecretRef: "notifiit" # kubectl create secret generic notifiit --from-env-file .env
