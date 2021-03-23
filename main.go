@@ -20,10 +20,6 @@ func main() {
 			Pub:  os.Getenv("captchpub"),
 			Priv: os.Getenv("captchpriv"),
 		},
-		Sparkle: appserver.Sparkle{
-			Version:     "0.1",
-			Description: "foo",
-		},
 		Email: appserver.Email{
 			To:       "max@max.me.uk",
 			Host:     os.Getenv("emailhost"),

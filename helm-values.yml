@@ -1,0 +1,8 @@
+ingress:
+  match: "Host(`notifi.it`)"
+
+image:
+  repository: "maxisme/notifi.it"
+  tag: "latest"
+
+envSecretRef: "notifiit" # kubectl create secret generic notifiit --from-env-file .env
