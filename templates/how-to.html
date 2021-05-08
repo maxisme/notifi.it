@@ -3,7 +3,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-{{$url:="https://notifi.it/api"}}
 {{$title:="Lorem ipsum dolor."}}
 {{$message:="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}}
 {{$link:="https://notifi.it"}}
@@ -14,6 +13,11 @@
     {{$credentials = index .Data.c 0}}
 {{end}}
 
+{{$endpoint:="https://notifi.it/api"}}
+{{ if .Data.e }}
+    {{$endpoint = index .Data.e 0}}
+{{end}}
+
 To send a notification to notifi you need to create an HTTP request with the following parameters:
 <ul>
     <li><span><strong>credentials</strong></span></li>
@@ -22,7 +26,7 @@ To send a notification to notifi you need to create an HTTP request with the fol
     <li><span>link</span></li>
     <li><span>image</span></li>
 </ul>
-to the url - <strong>{{ $url }}</strong>.
+to the url - <strong>{{ $endpoint }}</strong>.
 
 
 <h3>BASH</h3>
@@ -32,13 +36,13 @@ to the url - <strong>{{ $url }}</strong>.
 -d "message={{ $message }}" \
 -d "link={{ $link }}" \
 -d "image={{ $image }}" \
-{{ $url }}
+{{ $endpoint }}
 </code>
 </pre>
 
 <h3>jQuery</h3>
 <pre>
-    <code class="jquery">$.post("{{ $url }}", {
+    <code class="jquery">$.post("{{ $endpoint }}", {
   'credentials': '{{ $credentials }}',
   'title': '{{ $title }}',
   'message': '{{ $message }}',
@@ -51,7 +55,7 @@ to the url - <strong>{{ $url }}</strong>.
     <!-- credentials been passed to url -->
     <script>
         function runJquery() {
-            $.post("{{ $url }}", {
+            $.post("{{ $endpoint }}", {
                 'credentials': '{{ $credentials }}',
                 'title': '{{ $title }}',
                 'message': '{{ $message }}',
@@ -68,7 +72,7 @@ to the url - <strong>{{ $url }}</strong>.
 <h3>Python</h3>
 <pre>
     <code class="python">import requests
-requests.post('{{ $url }}', {
+requests.post('{{ $endpoint }}', {
   'credentials': '{{ $credentials }}',
   'title': '{{ $title }}',
   'message': '{{ $message }}',
@@ -82,7 +86,7 @@ requests.post('{{ $url }}', {
     <code class="php">curl_setopt_array(
   $chpush = curl_init(),
   array(
-    CURLOPT_URL => "{{ $url }}",
+    CURLOPT_URL => "{{ $endpoint }}",
     CURLOPT_POSTFIELDS => array(
       "credentials" => '{{ $credentials }}',
       "title" => '{{ $title }}',
@@ -98,7 +102,7 @@ curl_close($chpush);</code>
 
 <h3>Objective-C</h3>
 <pre>
-    <code class="objective-c">NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"{{ $url }}"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
+    <code class="objective-c">NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"{{ $endpoint }}"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
 [request setHTTPMethod:@"POST"];
 [request setHTTPBody:[@"credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}" dataUsingEncoding:NSUTF8StringEncoding]];
 [[[NSURLSession sharedSession] dataTaskWithRequest:request] resume];</code>
