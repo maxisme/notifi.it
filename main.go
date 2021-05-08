@@ -14,8 +14,8 @@ func main() {
 		Name:          "notifi",
 		Host:          "notifi.it",
 		GithubDmgRepo: "maxisme/notifi",
-		KeyWords:      "notifi, notifi it, notify, notification, push notification, curl, mac, osx, mac to mac",
-		Description:   "Send simple push notifications to your Mac using HTTP.",
+		KeyWords:      "notifi, notifi it, notify, notification, push notification, curl, mac, osx, mac to mac, ios, flutter",
+		Description:   "Send simple push notifications to your MacOS and iOS devices using HTTP.",
 		Recaptcha: appserver.Recaptcha{
 			Pub:  os.Getenv("captchpub"),
 			Priv: os.Getenv("captchpriv"),
