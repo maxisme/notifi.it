@@ -15,6 +15,8 @@ github.com/maxisme/appserver v1.7.0 h1:4LxRff1wf86szEdtWImvfTDjdRGE3KVBKTo6aKwtK
 github.com/maxisme/appserver v1.7.0/go.mod h1:s1fTDzC2YodR7MRDNShgDXljMce+g4aDIW5545cT+5A=
 github.com/maxisme/appserver v1.8.0 h1:ok3I0fzeK9xhqpAZihduT564ugSLw0jZtbUcxgoJ5PM=
 github.com/maxisme/appserver v1.8.0/go.mod h1:s1fTDzC2YodR7MRDNShgDXljMce+g4aDIW5545cT+5A=
+github.com/maxisme/appserver v1.9.0 h1:GAV7yediqyOsAS2IVWTB44mZseNTgFA9Xgf6ZyoPV54=
+github.com/maxisme/appserver v1.9.0/go.mod h1:s1fTDzC2YodR7MRDNShgDXljMce+g4aDIW5545cT+5A=
 github.com/tylerb/graceful v1.2.15 h1:B0x01Y8fsJpogzZTkDg6BDi6eMf03s01lEKGdrv83oA=
 github.com/tylerb/graceful v1.2.15/go.mod h1:LPYTbOYmUTdabwRt0TGhLllQ0MUNbs0Y5q1WXJOI9II=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
