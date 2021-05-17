@@ -20,14 +20,42 @@
 
 To send a notification to notifi you need to create an HTTP request with the following parameters:
 <ul>
-    <li><span><strong>credentials</strong></span></li>
-    <li><span><strong>title</strong></span></li>
-    <li><span>message</span></li>
-    <li><span>link</span></li>
-    <li><span>image</span></li>
+    <li>- <span><strong>credentials</strong></span></li>
+    <li>- <span><strong>title</strong></span></li>
+    <li>- <span>message</span></li>
+    <li>- <span>link</span></li>
+    <li>- <span>image</span></li>
 </ul>
 to the url - <strong>{{ $endpoint }}</strong>.
 
+<h3>jQuery</h3>
+
+{{ if .Data.c }}
+<script>
+    function runJquery() {
+        $.post("{{ $endpoint }}", {
+            'credentials': '{{ $credentials }}',
+            'title': '{{ $title }}',
+            'message': '{{ $message }}',
+            'link': '{{ $link }}',
+            'image': '{{ $image }}'
+        }, function (data) {
+            if (data) alert(data);
+        });
+    }
+</script>
+<i><a class="strong btn" href="#" onclick="runJquery()">Send Test Notification</a></i>
+{{end}}
+    <br>
+<pre>
+<code class="jquery">$.post("{{ $endpoint }}", {
+'credentials': '{{ $credentials }}',
+'title': '{{ $title }}',
+'message': '{{ $message }}',
+'link': '{{ $link }}',
+'image': '{{ $image }}'
+});</code>
+</pre>
 
 <h3>BASH</h3>
 <pre>
@@ -39,34 +67,6 @@ to the url - <strong>{{ $endpoint }}</strong>.
 {{ $endpoint }}
 </code>
 </pre>
-
-<h3>jQuery</h3>
-<pre>
-    <code class="jquery">$.post("{{ $endpoint }}", {
-  'credentials': '{{ $credentials }}',
-  'title': '{{ $title }}',
-  'message': '{{ $message }}',
-  'link': '{{ $link }}',
-  'image': '{{ $image }}'
-});</code>
-</pre>
-
-{{ if .Data.c }}
-    <script>
-        function runJquery() {
-            $.post("{{ $endpoint }}", {
-                'credentials': '{{ $credentials }}',
-                'title': '{{ $title }}',
-                'message': '{{ $message }}',
-                'link': '{{ $link }}',
-                'image': '{{ $image }}'
-            }, function (data) {
-                if (data) alert(data);
-            });
-        }
-    </script>
-    <i><a class="strong btn" href="#" onclick="runJquery()">Test</a></i>
-{{end}}
 
 <h3>Python</h3>
 <pre>
