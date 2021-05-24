@@ -44,9 +44,18 @@ to the url - <strong>{{ $endpoint }}</strong>.
         });
     }
 </script>
-<i><a class="strong btn" href="#" onclick="runJquery()">Send Test Notification</a></i>
+    <style>
+        .test{
+            background-color: #bc2122 !important;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+    </style>
+    <a
+            class="strong btn test" href="#" onclick="runJquery()">
+        Send Test
+    </a>
 {{end}}
-    <br>
 <pre>
 <code class="jquery">$.post("{{ $endpoint }}", {
 'credentials': '{{ $credentials }}',

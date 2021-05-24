@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="row valign-wrapper">
-        <div class="col s12 l6 push-l6 valign" align="center">
-            <strong>Sending your first notification over the Terminal.</strong>
-        </div>
-        <video class="col s12 pull-l6 l6" loop autoplay muted>
-            <source src="images/hello-world.mp4" type="video/mp4">
-        </video>
-    </div>
+<!--    <div class="row valign-wrapper">-->
+<!--        <div class="col s12 l6 push-l6 valign" align="center">-->
+<!--            <strong>Sending your first notification over the Terminal.</strong>-->
+<!--        </div>-->
+<!--        <video class="col s12 pull-l6 l6" loop autoplay muted>-->
+<!--            <source src="images/hello-world.mp4" type="video/mp4">-->
+<!--        </video>-->
+<!--    </div>-->
 
     <div class="col s12 l6">
         <h3>What is notifi?</h3>
@@ -19,7 +19,7 @@
             <li>- To notifi you that someone has logged into your server.</li>
             <li>- To notifi you that renewing your SSL certificate failed.</li>
         </ul>
-        <h3>Want to know more?</h3>
+        <h3>Feel like there is something you can improve?</h3>
         <p class="info">
             notifi is built with flutter and open source on <a target="_blank" href="https://github.com/maxisme/notifi">GitHub</a>.
         </p>
@@ -29,6 +29,65 @@
         <img class="notification-img" src="images/notifications.png">
     </div>
 </div>
+<div class="row">
+    <h3>Downloads</h3>
+    <div align="center" class="row valign-wrapper">
+        <div class="col s12 l6">
+            <br>
+            <a class="download-mac downloads">DOWNLOAD FOR MACOS</a>
+        </div>
+
+        <div class="col s12 l6">
+            <br>
+            <a target="_blank" class="downloads" href="https://apps.apple.com/us/app/notifi/id1563961135">
+                <img style="border: none"
+                     width="150px"
+                     src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred_2x.png"/>
+            </a>
+        </div>
+    </div>
+</div>
+<style>
+    .download-mac {
+        font-weight: 900;
+        border: #2f2f2f 5px solid !important;
+        padding: 5px;
+    }
+
+    .download-mac:hover {
+        border: #2f2f2f 5px dashed !important;
+    }
+
+    .downloads {
+        border-bottom: none;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        function iOS() {
+            return [
+                    'iPad Simulator',
+                    'iPhone Simulator',
+                    'iPod Simulator',
+                    'iPad',
+                    'iPhone',
+                    'iPod'
+                ].includes(navigator.platform)
+                // iPad on iOS 13 detection
+                || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+        }
+
+        var isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+
+        /* only add link for macos */
+        if (!iOS() && isMac) {
+            $(".download-mac").attr("href", "download");
+        } else {
+            $(".download-mac").css("color", "grey");
+            $(".download-mac").css("border", "none !important");
+        }
+    });
+</script>
 <style>
     .notification-img {
         display: block;
