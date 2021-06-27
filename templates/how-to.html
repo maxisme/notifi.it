@@ -121,11 +121,11 @@ curl_close($chpush);</code>
 <h3>Node.js</h3>
 <pre>
     <code contenteditable="true" class="nodejs">const https = require('https');
-https.get('https://notifi.it/api?credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}"');</code>
+https.get('{{ $endpoint }}?credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}"');</code>
 </pre>
 
 <h3>Go</h3>
 <pre>
     <code contenteditable="true" class="go">import "net/http"
-http.get('https://notifi.it/api?credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}"');</code>
+http.get('{{ $endpoint }}?credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}"');</code>
 </pre>
