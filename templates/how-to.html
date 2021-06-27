@@ -31,19 +31,22 @@ to the url - <strong>{{ $endpoint }}</strong>.
 <h3>jQuery</h3>
 
 {{ if .Data.c }}
-<script>
-    function runJquery() {
-        $.post("{{ $endpoint }}", {
-            'credentials': '{{ $credentials }}',
-            'title': '{{ $title }}',
-            'message': '{{ $message }}',
-            'link': '{{ $link }}',
-            'image': '{{ $image }}'
-        }, function (data) {
-            if (data) alert(data);
-        });
-    }
-</script>
+    <script>
+        function runJquery() {
+            $.post("{{ $endpoint }}", {
+                'credentials': '{{ $credentials }}',
+                'title': '{{ $title }}',
+                'message': '{{ $message }}',
+                'link': '{{ $link }}',
+                'image': '{{ $image }}'
+            }, function (data) {
+                if (data) alert(data);
+            }).fail(function(e) {
+                console.log(e);
+                alert(JSON.stringify(e));
+            });
+        }
+    </script>
     <style>
         .test{
             background-color: #bc2122 !important;
@@ -55,9 +58,8 @@ to the url - <strong>{{ $endpoint }}</strong>.
         Send Test
     </a>
 {{end}}
-    <br>
 <pre>
-<code class="jquery">$.post("{{ $endpoint }}", {
+<code contenteditable="true" class="jquery">$.post("{{ $endpoint }}", {
 'credentials': '{{ $credentials }}',
 'title': '{{ $title }}',
 'message': '{{ $message }}',
@@ -68,7 +70,7 @@ to the url - <strong>{{ $endpoint }}</strong>.
 
 <h3>BASH</h3>
 <pre>
-    <code class="bash">curl -d "credentials={{ $credentials }}" \
+    <code contenteditable="true" class="bash">curl -d "credentials={{ $credentials }}" \
 -d "title={{ $title }}" \
 -d "message={{ $message }}" \
 -d "link={{ $link }}" \
@@ -79,7 +81,7 @@ to the url - <strong>{{ $endpoint }}</strong>.
 
 <h3>Python</h3>
 <pre>
-    <code class="python">import requests
+    <code contenteditable="true" class="python">import requests
 requests.post('{{ $endpoint }}', {
   'credentials': '{{ $credentials }}',
   'title': '{{ $title }}',
@@ -91,7 +93,7 @@ requests.post('{{ $endpoint }}', {
 
 <h3>PHP</h3>
 <pre>
-    <code class="php">curl_setopt_array(
+    <code contenteditable="true" class="php">curl_setopt_array(
   $chpush = curl_init(),
   array(
     CURLOPT_URL => "{{ $endpoint }}",
@@ -110,7 +112,7 @@ curl_close($chpush);</code>
 
 <h3>Objective-C</h3>
 <pre>
-    <code class="objective-c">NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"{{ $endpoint }}"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
+    <code contenteditable="true" class="objective-c">NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"{{ $endpoint }}"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
 [request setHTTPMethod:@"POST"];
 [request setHTTPBody:[@"credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}" dataUsingEncoding:NSUTF8StringEncoding]];
 [[[NSURLSession sharedSession] dataTaskWithRequest:request] resume];</code>
@@ -118,12 +120,12 @@ curl_close($chpush);</code>
 
 <h3>Node.js</h3>
 <pre>
-    <code class="nodejs">const https = require('https');
+    <code contenteditable="true" class="nodejs">const https = require('https');
 https.get('https://notifi.it/api?credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}"');</code>
 </pre>
 
 <h3>Go</h3>
 <pre>
-    <code class="go">import "net/http"
+    <code contenteditable="true" class="go">import "net/http"
 http.get('https://notifi.it/api?credentials={{ $credentials }}&title={{ $title }}&message={{ $message }}&link={{ $link }}&image={{ $image }}"');</code>
 </pre>
