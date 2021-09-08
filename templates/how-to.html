@@ -18,15 +18,16 @@
     {{$endpoint = index .Data.e 0}}
 {{end}}
 
-To send a notification to notifi you need to create an HTTP request with the following parameters:
+To send a notification to notifi you need to create a GET or POST HTTP request with the following parameters:
 <ul>
-    <li>- <span><strong>credentials</strong></span></li>
-    <li>- <span><strong>title</strong></span></li>
+    <li>- <span><strong>credentials</strong></span>*</li>
+    <li>- <span><strong>title</strong></span>*</li>
     <li>- <span>message</span></li>
     <li>- <span>link</span></li>
     <li>- <span>image</span></li>
 </ul>
-to the url - <strong>{{ $endpoint }}</strong>.
+    to the url - <strong>{{ $endpoint }}</strong>.
+    <div align="center"><h2>Examples</h2></div>
 
 <h3>jQuery</h3>
 
