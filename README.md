@@ -1,11 +1,15 @@
-<p align="center"><img height="150px" src="https://github.com/maxisme/notifi/raw/master/notifi/images/bell.png"></p>
+<p align="center"><img height="150px" src="https://raw.githubusercontent.com/maxisme/notifi/master/images/bell.png"></p>
 
 # [notifi.it](https://notifi.it/)
 
 ## [Mac App](https://github.com/maxisme/notifi) | Website | [Backend](https://github.com/maxisme/notifi-backend)
 
-Upgrade deps:
+Run website:
+```bash
+hugo serve
 ```
-go get -u all
-go mod tidy
+
+Upgrade theme:
+```bash
+git submodule update --recursive --force --remote
 ```
