@@ -1,0 +1,4 @@
+baseURL = "https://notifi.it/"
+languageCode = "en-gb"
+title = "notifi"
+theme = "app-hugo"

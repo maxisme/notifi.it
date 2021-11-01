@@ -4,6 +4,11 @@
 
 ## [Mac App](https://github.com/maxisme/notifi) | Website | [Backend](https://github.com/maxisme/notifi-backend)
 
+Upgrade theme:
+```bash
+git submodule update --recursive --force --remote
+```
+
 Upgrade deps:
 ```
 go get -u all

@@ -1,0 +1,6 @@
+[submodule "themes/app1"]
+	path = themes/app1
+	url = https://github.com/maxisme/app-hugo-theme
+[submodule "themes/app-hugo"]
+	path = themes/app-hugo
+	url = https://github.com/maxisme/app-hugo-theme
